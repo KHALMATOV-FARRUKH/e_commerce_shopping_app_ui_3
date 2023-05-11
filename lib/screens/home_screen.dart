@@ -1,4 +1,5 @@
 import 'package:e_commerce_shopping_app_ui_3/widgets/product_card.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -79,7 +80,8 @@ class HomeScreen extends StatelessWidget {
                             ),
                             child: Text(
                               catList[i],
-                              style: TextStyle(fontSize: 16,
+                              style: TextStyle(
+                                fontSize: 16,
                                 color: catList[i] == "All"
                                     ? Colors.white
                                     : Colors.black38,
@@ -95,13 +97,15 @@ class HomeScreen extends StatelessWidget {
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: (MediaQuery.of(context).size.width - 30 -15) / (2*209),
+                    childAspectRatio:
+                        (MediaQuery.of(context).size.width - 30 - 15) /
+                            (2 * 209),
                     mainAxisSpacing: 45,
                     crossAxisSpacing: 15,
                   ),
                   itemCount: imgList.length,
-                  itemBuilder: (_, i){
-                    if(i%2==0){
+                  itemBuilder: (_, i) {
+                    if (i % 2 == 0) {
                       return ProductCard(imgList[i]);
                     }
                     return OverflowBox(
@@ -117,6 +121,22 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        iconSize: 30,
+        selectedItemColor: Color(0xFFFD725A),
+        unselectedItemColor: Colors.grey,
+        currentIndex: 0,
+        onTap: (index) {},
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.cart_fill), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
+
+        ],
       ),
     );
   }
