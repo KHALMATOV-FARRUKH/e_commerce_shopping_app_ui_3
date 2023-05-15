@@ -1,4 +1,7 @@
+import 'package:e_commerce_shopping_app_ui_3/widgets/bottom_sheet.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ProductScreen extends StatelessWidget {
   String img;
@@ -90,7 +93,79 @@ class ProductScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    "For Women",
+                    style: TextStyle(color: Colors.black54, fontSize: 16),
+                  ),
+                  SizedBox(height: 15),
+                  RatingBar.builder(
+                    itemSize: 28,
+                    onRatingUpdate: (rating) {},
+                    initialRating: 3.5,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: true,
+                    itemCount: 5,
+                    itemPadding: EdgeInsets.symmetric(horizontal: 4),
+                    itemBuilder: (context, _) =>
+                        Icon(Icons.star, color: Colors.amber),
+                  ),
+                  SizedBox(height: 15),
+                  Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+                    "sed do eiusmod tempor incididunt ut labore et dolore "
+                    "magna aliqua. ",
+                    style: TextStyle(fontSize: 16, color: Colors.black54),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          padding: EdgeInsets.all(18),
+                          decoration: BoxDecoration(
+                            color: Color(0xFFF7F8FA),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Icon(
+                            CupertinoIcons.cart_fill,
+                            size: 22,
+                            color: Color(0xFFFD725A),
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              builder: (context) {
+                                return CustomBottomSheet();
+                              });
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 70, vertical: 18),
+                          decoration: BoxDecoration(
+                            color: Color(0xFFFD725A),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Text(
+                            "Buy Now",
+                            style: TextStyle(
+                                letterSpacing: 1,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white.withOpacity(0.8)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             )
