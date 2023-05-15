@@ -1,3 +1,4 @@
+import 'package:e_commerce_shopping_app_ui_3/screens/cart_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -137,7 +138,10 @@ class CustomBottomSheet extends StatelessWidget {
           SizedBox(height: 10),
           InkWell(
             onTap: () {
-
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CartScreen()),
+              );
             },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 100, vertical: 20),
